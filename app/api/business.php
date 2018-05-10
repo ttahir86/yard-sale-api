@@ -23,12 +23,10 @@ $app->get('/api/business', function() {
 */
 $app->post('/api/addbusiness', function(Request $request, Response $response) {
 
-	
-	
 	// get params from request
-	$business_name 	= $request->getParam('business_name') 	== null || 	$request->getParam('business_name') 	== "" 	: null ? $request->getParam('business_name');
-	$email_address 	= $request->getParam('email_address') 	== null || 	$request->getParam('email_address') 	== "" 	: null ? $request->getParam('email_address');
-	$password 		= $request->getParam('password') 		== null || 	$request->getParam('password') 			== "" 	: null ? $request->getParam('password');
+	$business_name 	= $request->getParam('business_name') 	== null || 	$request->getParam('business_name') 	== "" 	? null : $request->getParam('business_name');
+	$email_address 	= $request->getParam('email_address') 	== null || 	$request->getParam('email_address') 	== "" 	? null : $request->getParam('email_address');
+	$password 		= $request->getParam('password') 		== null || 	$request->getParam('password') 			== "" 	? null : $request->getParam('password');
 	
 	// create array with business information 
 	$businessInfo = array(
@@ -43,9 +41,8 @@ $app->post('/api/addbusiness', function(Request $request, Response $response) {
 	// return response
 	$message = $newBusiness: "BUSINESS CREATED SUCCESFFULLY <BR>" ? "FAILURE - BUSINESS COULD NOT BE CREATED.";
 	
+	// need proper response for cross-orign request.
 	echo message;
-
-
 });
 
 protected function _addNewBusiness($businessInfo){

@@ -37,7 +37,7 @@ $app->post('/api/addbusiness', function() {
 
 	require_once('businessClass.php');
 
-	$newBusiness = new Business;
+	$newBusiness = new Business();
 	$aBusinessInfo = $_POST['aInfo'];
 
 	$business_name = $aBusinessInfo['business_name'];
